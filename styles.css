@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#visualizer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controls.hidden {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+    pointer-events: none;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+#audioFile {
+    color: white;
+}
+
+#progressContainer {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00ffee);
+    transition: width 0.3s ease;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
+    display: none;
+}
+
+.progress-bar.active {
+    display: block;
+}
+
+#progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00ffcc);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+#progress-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
